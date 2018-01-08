@@ -1,0 +1,11 @@
+
+.icon-download:before { content: '\e800'; } /* '' */
+.icon-heart-empty:before { content: '\e801'; } /* '' */
+.icon-heart:before { content: '\e802'; } /* '' */
+.icon-bell:before { content: '\e806'; } /* '' */
+.icon-play:before { content: '\e807'; } /* '' */
+.icon-pause:before { content: '\e80a'; } /* '' */
+.icon-left-open:before { content: '\e80c'; } /* '' */
+.icon-home:before { content: '\e813'; } /* '' */
+.icon-history:before { content: '\f1da'; } /* '' */
+.icon-user-circle:before { content: '\f2bd'; } /* '' */
