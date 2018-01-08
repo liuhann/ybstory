@@ -3,6 +3,12 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
+// 给出正确的绝对路径
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
+
 const webpackConfig  = {
     entry: {
         main: './appv2/boot.js',
@@ -49,7 +55,7 @@ const webpackConfig  = {
                         plugins: [require('babel-plugin-transform-runtime')]
                     }
                 },
-                exclude: /node_modules/,
+                include: [resolve('js'), resolve('vue'), resolve('common')]
             },
             {
                 test: /\.html$/,

@@ -1,7 +1,5 @@
 import config from './config';
-import IScroll from '../../common/iscroll';
-
-const format = require('format-duration');
+import IScroll from '../common/iscroll';
 
 const commonMixins =  {
 
@@ -56,7 +54,7 @@ const commonMixins =  {
         formatDura: function(story) {
             if (story.duration) {
                 const number = parseInt(story.duration);
-                return format(number * 1000)
+                return Math.floor(number/60) + ":" + number%60;
             } else {
                 return '';
             }

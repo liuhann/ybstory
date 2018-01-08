@@ -49,7 +49,7 @@
 </template>
 
 <script>
-    import IScroll from '../../../common/iscroll';
+    import IScroll from '../../common/iscroll';
     import config from '../../js/config';
 
     export default {

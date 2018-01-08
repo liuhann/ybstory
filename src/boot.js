@@ -8,10 +8,10 @@ import './style/transitions.less';
 
 import config from './js/config';
 
-import HttpClient from '../common/httpclient';
-import contextProto from '../common/context';
+import HttpClient from './common/httpclient';
+import contextProto from './common/context';
 
-import loading from '../common/ui/loading.vue';
+import loading from './common/ui/loading.vue';
 import BootVue from './vue/boot.vue';
 import Player from './vue/player.vue';
 import Main from './vue/main.vue';
@@ -22,8 +22,6 @@ import Register from './vue/register.vue';
 import Favorites from './vue/favorites';
 
 import Me from './vue/me.vue';
-
-alert('booting');
 
 Vue.component('loading', loading);
 Vue.use(VueRouter);

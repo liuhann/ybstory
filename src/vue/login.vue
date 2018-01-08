@@ -46,8 +46,7 @@
 
 <script>
     import PageHead from './components/header.vue';
-    import config from '../js/config';
-    import uimixins from '../../common/ui/mixin';
+    import uimixins from '../common/ui/mixin';
 
     export default {
         components: {

@@ -153,7 +153,6 @@
 
 <script>
     import commonMixins from '../js/common';
-    import IScroll from '../../common/iscroll';
 
     export default {
         props: {
@@ -241,14 +240,6 @@
                     title: this.story.title
                 };
                 await this.appDao.addFavorite(fav);
-            },
-
-            resetScroll: function() {
-                this.$nextTick(() => {
-                    new IScroll(this.$refs.scroll, {
-                        tap: true
-                    });
-                });
             },
 
             hidePlayer: function() {

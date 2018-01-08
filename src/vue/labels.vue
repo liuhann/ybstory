@@ -36,7 +36,7 @@
 <template>
    <div class="fs">
        <page-head :title="'故事分类'"></page-head>
-       <div class="body scroll-container" ref="body">
+       <div class="body scroll-container" ref="scroll">
            <div class="labels">
                 <div class="dimension" v-for="(item, index) in labels" :key="item.icon">
                     <div class="dim">
@@ -56,13 +56,14 @@
 
 <script>
     import PageHead from './components/header.vue';
-    import IScroll from '../../common/iscroll';
+    import commonMixins from '../js/common';
     import config from '../js/config';
 
     export default {
         components: {
             PageHead
         },
+        mixins: [commonMixins],
         props: [
 
         ],
@@ -76,11 +77,6 @@
         created: async function () {
             const allLabels = await this.appDao.listAllLabels();
             this.labels = allLabels;
-            this.$nextTick(() => {
-                new IScroll(this.$refs.body, {
-                    tap: true
-                });
-            });
 
         },
 

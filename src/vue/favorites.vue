@@ -31,9 +31,7 @@
 
 <script>
     import PageHead from './components/header.vue';
-    import IScroll from '../../common/iscroll';
     import commonMixins from '../js/common';
-    import debug from 'debug';
 
     export default {
         components: {

@@ -50,7 +50,7 @@
 <script>
     import config from '../js/config';
     import commonMixins from '../js/common';
-    import TabBar from '../../common/ui/tabbar.vue';
+    import TabBar from '../common/ui/tabbar.vue';
     import Player from './player.vue';
     import playerMixins from './mixins/player';
 

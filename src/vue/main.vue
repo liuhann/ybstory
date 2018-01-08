@@ -101,7 +101,7 @@
     <div class="page-home">
         <div class="home-title">
             <div class="logo">,
-                <img src="../../common/res/mushroom.svg">
+                <img src="../common/res/mushroom.svg">
             </div>
             <div class="search-form-input">
                 <span @click="searchStory">搜索故事</span>
@@ -119,25 +119,25 @@
 
                 <div class="quick-entry clearfix">
                     <div class="entry">
-                        <img class="icon" src="../../common/res/picture.svg">
+                        <img class="icon" src="../common/res/picture.svg">
                         <div class="name">精选绘本</div>
                     </div>
                     <div class="entry">
-                        <img class="icon" src="../../common/res/reading.svg">
+                        <img class="icon" src="../common/res/reading.svg">
                         <div class="name">亲子阅读</div>
                     </div>
                     <div class="entry">
-                        <img class="icon" src="../../common/res/tale.svg">
+                        <img class="icon" src="../common/res/tale.svg">
                         <div class="name">经典童话</div>
                     </div>
 
                     <div class="entry" @tap="routeToUrl('/label-list/睡前故事')">
-                        <img class="icon" src="../../common/res/sleep.svg">
+                        <img class="icon" src="../common/res/sleep.svg">
                         <div class="name">睡前故事</div>
                     </div>
 
                     <div class="entry" @tap="routeToUrl('/labels')">
-                        <img class="icon" src="../../common/res/labels.svg">
+                        <img class="icon" src="../common/res/labels.svg">
                         <div class="name">故事分类</div>
                     </div>
                 </div>
@@ -159,9 +159,8 @@
 </template>
 
 <script>
-    import Slider from '../../common/ui/slider.vue';
+    import Slider from '../common/ui/slider.vue';
     import commonMixins from '../js/common';
-    import IScroll from '../../common/iscroll';
 
     export default {
         components: {
@@ -188,25 +187,9 @@
             }
             this.slides = slides;
             this.homeList = homeData.list;
-
-           /* this.$nextTick(() => {
-                this.$refs.slider.ready();
-                this.iscroll = new IScroll(this.$refs.scroll, {
-                    tap: true
-                });
-            });*/
         },
         updated: async function() {
             this.$refs.slider.ready();
-            /*setTimeout(()=> {
-                if (this.iscroll) {
-                    this.iscroll.destroy();
-                }
-                this.iscroll = null;
-                this.iscroll = new IScroll(this.$refs.scroll, {
-                    tap: true
-                });
-            }, 500);*/
         },
         beforeRouteEnter (to, from, next) {
             // 在渲染该组件的对应路由被 confirm 前调用
