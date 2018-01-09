@@ -24,9 +24,9 @@
 <template>
     <div class="main-app">
         <div class="main-screen">
-            <transition name="tab-slide">
-                <router-view></router-view>
-            </transition>
+            <router-view></router-view>
+            <!--<transition name="tab-slide">
+            </transition>-->
             <tab-bar :tabs="tabs" :current="currentPath" @tabbed="tabClicked"></tab-bar>
         </div>
         <div class="external-container">
@@ -38,7 +38,7 @@
             <player v-if="playerFront" :story="story" :playing="playing" :percent="percent" @hide="hidePlayer" @toggle="togglePlay"></player>
         </transition>
         
-        <play-ball v-if="story!==null" :playing="playing" :cover="coverImage" @clicked="ballClicked"></play-ball>
+        <play-ball v-if="story!==null" :playing="playing" :cover="coverImage" @click="ballClicked"></play-ball>
 
         <div class='media-player'>
             <audio id='media-video' controls="false" :src="audioUrl">

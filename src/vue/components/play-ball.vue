@@ -1,4 +1,4 @@
-<style lang="less" scoped>
+<style >
 .play-ball {
     width: 17vw;
     padding: 4vw;
@@ -14,37 +14,50 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+}
+.play-ball img {
+    float: left;
+    width: 15vw;
+    height: 15vw;
+}
 
-    img {
-        float: left;
-        width: 15vw;
-        height: 15vw;
-    }
-} 
-
-.playing {
-    .line:nth-last-child(1) {animation: loadingA 1.5s 1s infinite;}
-    .line:nth-last-child(2) {animation: loadingA 1.5s .5s infinite;}
-    .line:nth-last-child(3) {animation: loadingA 1.5s 0s infinite;}
+.playing .line:nth-last-child(1) {
+    -webkit-animation: loading 1.5s 0s infinite;
+}
+.playing .line:nth-last-child(2) {
+    -webkit-animation: loading 1.5s .5s infinite;
+}
+.playing .line:nth-last-child(3) {
+    -webkit-animation: loading 1.3s infinite;
 }
 
 .line {
     display: inline-block;
     width: 2vw;
-    height: 5vw;
+    height: 9vw;
     background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0,0,0,.4) 100%);
 }
 
-@keyframes loadingA {
-    0 {height: 1vw;}
-    50% {height: 9vw;}
-    100% {height: 1vw;}
+@-webkit-keyframes loading
+{
+    0% {
+        -webkit-transform: scaleY(.6);
+        transform: scaleY(.6);
+    }
+    50% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+    100% {
+        -webkit-transform: scaleY(.6);
+        transform: scaleY(.6);
+    }
 }
 
 </style>
 
 <template>
-    <div class="play-ball" @click="ballClicked()" :class="playing?'playing':''" :style="styleBallCover">
+    <div class="play-ball" @tap="ballClicked()" :class="playing?'playing':''" :style="styleBallCover">
         <div class="line"></div>
         <div class="line"></div>
         <div class="line"></div>

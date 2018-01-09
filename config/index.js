@@ -8,15 +8,15 @@ module.exports = {
         // webpack的编译环境
         env: require('./prod.env'),
         // 编译输入的index.html文件
-        index: path.resolve(__dirname, '../dist/index.html'),
+        index: path.resolve(__dirname, '../../../git/cordova-story/www/index.html'),
         // webpack输出的目标文件夹路径
-        assetsRoot: path.resolve(__dirname, '../dist'),
+        assetsRoot: path.resolve(__dirname, '../../../git/cordova-story/www'),
         // webpack编译输出的二级文件夹
         assetsSubDirectory: 'static',
         // webpack编译输出的发布路径
         assetsPublicPath: './',
         // 使用SourceMap
-        productionSourceMap: true,
+        productionSourceMap: false,
         // Gzip off by default as many popular static hosts such as
         // Surge or Netlify already gzip all static assets for you.
         // Before setting to `true`, make sure to:
@@ -37,7 +37,7 @@ module.exports = {
         // webpack的编译环境
         env: require('./dev.env'),
         // dev-server监听的端口
-        port: 8090,
+        port: 80,
         // 启动dev-server之后自动打开浏览器
         autoOpenBrowser: true,
         // webpack编译输出的二级文件夹
@@ -56,6 +56,6 @@ module.exports = {
         // just be aware of this issue when enabling this option.
         // 是否开启 cssSourceMap
         cssSourceMap: false,
-        title: '智投'
+        title: 'Dev'
     }
 }

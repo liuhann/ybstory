@@ -65,6 +65,24 @@ class AppDao {
         return this.db.get('favorites').value();
     }
 
+    async addDownload(story) {
+        if(this.isDownloaded(story)) {
+            return;
+        }
+        this.db.get('downloads').push(story).write();
+    }
+
+    isDownloaded(story) {
+        const value = this.db.get('downloads').find({
+            path: story.path
+        }).value();
+        if (value) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     isFavorite(story) {
         const value = this.db.get('favorites').find({
             path: story.path

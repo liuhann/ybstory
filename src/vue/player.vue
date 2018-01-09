@@ -109,10 +109,10 @@
 <template>
     <div class="fs" ref="scroll">
         <div class="scroll">
-            <div class="play-cover" @click="showIcons">
+            <div class="play-cover" @tap="showIcons">
                 <div class="icons" :class="iconShow?'display':''">
-                    <i class="return-icon  icon-left-open" @click="hidePlayer"></i>
-                    <i class="play-icon" :class="playing?'icon-pause':'icon-play'" @click="pauseOrPlay"></i>
+                    <i class="return-icon icon-left-open" @tap="hidePlayer"></i>
+                    <i class="play-icon" :class="playing?'icon-pause':'icon-play'" @tap="pauseOrPlay"></i>
                 </div>
                 <div class="play-progress">
                     <div class="percent" :style="{width: playPercent}"></div>
@@ -125,8 +125,8 @@
             <div class="story-intro">
                 <div class="text-title">{{story.title}}</div>
                 <div class="icons">
-                    <i @tap="addFavorite()" class="collect icon-heart-empty" :class="isFavorite?'on':''"></i>
-                    <i class="download icon-download"></i>
+                    <i @tap="addFavorite(story)" class="collect icon-heart-empty" :class="isFavorite?'on':''"></i>
+                    <i @tap="downloadStory(story)" class="download icon-download" :class="isDownloaded?'on':''"></i>
                 </div>
             </div>
 
@@ -166,7 +166,9 @@
 
         data: function() {
             return {
+                lastStory: null,
                 isFavorite: this.appDao.isFavorite(this.story),
+                isDownloaded: this.appDao.isDownloaded(this.story),
                 iconShow: false,
             };
         },
@@ -211,37 +213,22 @@
             },
         },
 
-        watch: {
-           
-        },
-
-        created: function () {
+        created() {
 
         },
 
         updated: function() {
-
+            if (this.lastStory != this.story) {
+                this.scroll(this.$refs.scroll);
+                this.lastStory = this.story;
+            }
         },
 
         mounted: function() {
-            console.log('mounted');
-            this.resetScroll();
             this.showIcons();
         },
 
         methods: {
-            addFavorite: async function() {
-                const fav = {
-                    cover: this.story.cover,
-                    duration: this.story.duration,
-                    path: this.story.path,
-                    short: this.story.short,
-                    teller: this.story.teller,
-                    title: this.story.title
-                };
-                await this.appDao.addFavorite(fav);
-            },
-
             hidePlayer: function() {
                 this.$emit('hide');
             },
