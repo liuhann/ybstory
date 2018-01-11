@@ -6,27 +6,23 @@
         margin: 1vh 0vh;
         border-bottom: 1px solid #eee;
       .dim {
-        .dim-icon {
-          width: 10vw;
-          height: 10vw;
-          margin: 1vh auto;
-        }
         .dim-text {
-          color: #666;
+            color: #666;
+            font-size: 20px;
+            padding: 10px;
         }
       }
       .labels {
-        flex: 3;
         display: flex;
-        border-left: 1px solid #eee;
         flex-wrap: wrap;
+        padding-bottom: 16px;
         .label {
-          padding: 3vh 0;
-          border-bottom: 1px solid #eee;
-          width: 33.3%;
-          border-right: 1px solid #eee;
-          font-size: 4vw;
-          box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 18px;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 20px;
+            border: 1px solid #68ba557a;
         }
       }
     }
@@ -87,7 +83,7 @@
 
         methods: {
             openLabel: function(item) {
-                this.$emit('openlabel', item);
+                this.$router.replace('/label/' + item);
             }
         },
     }

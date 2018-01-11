@@ -38,7 +38,7 @@ const routes = [
             default: Main
         }
     }, {
-        path: '/label-list/:label',
+        path: '/label/:label',
         components : {
             'full-topped': LabelStories,
             default: Main,

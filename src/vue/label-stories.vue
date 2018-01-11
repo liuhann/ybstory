@@ -4,20 +4,25 @@
 
 <template>
     <div class="fs">
-        <page-head :title="label"></page-head>
-        <story-list :filter="filter"></story-list>
+        <div class="header">
+            <router-link to="/home" tag="i" class="icon-left-open" style="flex:1;">
+            </router-link>
+            <div class="title">{{label}}</div>
+        </div>
+        <story-list :filter="filter" @clicked="playStory"></story-list>
     </div>
 </template>
 
 <script>
-import PageHead from './components/header.vue';
+
 import StoryList from './components/story-list.vue';
+import commonMixins from '../js/common';
 
 export default {
     components: {
-        PageHead,
         StoryList
     },
+    mixins: [commonMixins],
     
     props: {
 

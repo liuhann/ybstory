@@ -129,7 +129,7 @@
                         <div class="name">经典童话</div>
                     </div>
 
-                    <div class="entry" @tap="routeToUrl('/label-list/睡前故事')">
+                    <div class="entry" @tap="routeToUrl('/label/睡前故事')">
                         <img class="icon" src="../common/res/sleep.svg">
                         <div class="name">睡前故事</div>
                     </div>

@@ -31,9 +31,9 @@
 </style>
 
 <template>
-    <div class="body scroll-container" ref="body">
+    <div class="full-scroll-container" ref="scroll">
         <div class="story-list clearfix">
-            <div class="story-item" v-for="story in list" :key="story._id">
+            <div class="story-item" v-for="story in list" :key="story._id" @tap="itemClicked(story)">
                 <div class="cover" >
                     <img :src="getImageUrl(story.cover)">
                 </div>
@@ -49,15 +49,20 @@
 </template>
 
 <script>
-    import IScroll from '../../common/iscroll';
     import config from '../../js/config';
+    import IScroll from '../../common/iscroll';
 
     export default {
         components: {
+
         },
         props: {
             filter: {
                 type: Object
+            },
+            scrollBottom: {
+                type:  Boolean,
+                default: true,
             }
         },
         data: function() {
@@ -84,11 +89,9 @@
                 if (this.loading) {
                     return;
                 }
-
                 if (this.skip >this.total) {
                     return;
                 }
-
                 this.loading = true;
                 const loaded = await this.appDao.filterStory(this.filter, this.skip, this.limit);
                 
@@ -96,11 +99,11 @@
                 this.total = loaded.total;
                 this.skip = this.skip + loaded.limit;
                 this.loading = false;
-                setTimeout(()=> {
-                    }, 300);
-                this.$nextTick(()=> {
-                    this.refreshIscroll();
-                });
+                if (this.scrollBottom) {
+                    this.$nextTick(()=> {
+                        this.refreshIscroll();
+                    });
+                }
             },
 
             refreshIscroll: function() {
@@ -109,6 +112,7 @@
                     this.iscroll.refresh();
                 } else {
                     this.iscroll = new IScroll(this.$el, {
+                        tap: true,
                     });
                     this.iscroll.on('scrollEnd', function() {
                         if (this.y < this.maxScrollY + 30) {
@@ -117,8 +121,9 @@
                     });
                 }
             },
-            itemClicked : function(id) {
-                this.$emit('clicked', id);
+
+            itemClicked : function(story) {
+                this.$emit('clicked', story);
             },
 
             getImageUrl: function(cover) {
@@ -136,5 +141,3 @@
     }
 
 </script>
-
-
