@@ -43,6 +43,7 @@ export default {
         },
 
         ballClicked() {
+            debugger;
             if (this.playing) {
                 this.playerFront = true;
             } else {

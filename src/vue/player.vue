@@ -1,114 +1,113 @@
 <style lang="less">
-
-@import "../style/common";
-
 @ctr-height: 12vh;
 
-    .play-cover {
-        width: 100vw;
-        height: 100vw;
-        position: relative;
-        .cover-images {
-            img {
-                width: 100vw;
-                height: 100vw;
-            }
-        }
-        .icons {
-            position: absolute;
-            opacity: 0;
-            left: 0; top: 0; width: 100vw; height: 100vw;
-            transition: opacity .3s linear;
+@import "../style/variables";
 
-            &.display {
-                opacity: 1;
-            }
-            .return-icon {
-                color: #fff;
-                background-color: rgba(0,0,0,.5);
-                border-radius: 10vw;
-                padding: 2vw;
-                font-size: 4vw;
-                position: absolute;
-                left: 2vw;
-                top: 2vw;
-            }
-
-            .play-icon {
-                color: #fff;
-                background-color: rgba(0,0,0,.6);
-                border-radius: 10vw;
-                padding: 5vw;
-                font-size: 6vw;
-                position: absolute;
-                left: 42vw;
-                top: 42vw;
-            }
-        }
-
-        .play-progress {
-            position: absolute;
-            bottom:0;
-            left: 0;
+    .player {
+        .play-cover {
             width: 100vw;
-            height: 5px;
-            background-color: rgba(255,255,255, .5);
-            .percent {
-                .main-back-gradient;
-                height: 5px;
-            }
-        }
-    }
-
-    .story-intro {
-        display: flex;
-        color: #666;
-        padding: 10px 0px;
-        .text-title {
-            width: 72vw;
-            padding: 2vw;
-            font-size: 18px;
-        }
-        .icons {
-            padding: 2vw;
-            font-size: 5vw;
-            i {
-                &.on {
-                    color: #65bb57;
+            height: 100vw;
+            position: relative;
+            .cover-images {
+                img {
+                    width: 100vw;
+                    height: 100vw;
                 }
-                padding: 2vw;
+            }
+            .icons {
+                position: absolute;
+                opacity: 0;
+                left: 0; top: 0; width: 100vw; height: 100vw;
+                transition: opacity .3s linear;
+
+                &.display {
+                    opacity: 1;
+                }
+                .return-icon {
+                    color: #fff;
+                    background-color: rgba(0,0,0,.5);
+                    border-radius: 10vw;
+                    padding: 2vw;
+                    font-size: 4vw;
+                    position: absolute;
+                    left: 2vw;
+                    top: 2vw;
+                }
+
+                .play-icon {
+                    color: #fff;
+                    background-color: rgba(0,0,0,.6);
+                    border-radius: 10vw;
+                    padding: 5vw;
+                    font-size: 6vw;
+                    position: absolute;
+                    left: 42vw;
+                    top: 42vw;
+                }
+            }
+
+            .play-progress {
+                position: absolute;
+                bottom:0;
+                left: 0;
+                width: 100vw;
+                height: 5px;
+                background-color: rgba(255,255,255, .5);
+                .percent {
+                    .main-back-gradient;
+                    height: 5px;
+                }
             }
         }
-    }
 
-    .story-teller {
-        padding: 2vw;
-        font-size: 14px;
-        color: #666;
-        display: flex;
-        border-bottom: 1px solid #eee;
-        .from {
-            width: 70vw;
+        .story-intro {
+            display: flex;
+            color: #666;
+            padding: 10px 0px;
+            .text-title {
+                width: 72vw;
+                padding: 2vw;
+                font-size: 18px;
+            }
+            .icons {
+                padding: 2vw;
+                font-size: 5vw;
+                i {
+                    &.on {
+                        color: #65bb57;
+                    }
+                    padding: 2vw;
+                }
+            }
         }
-        .dura {
-            width: 30vw;
-            text-align: right;
+
+        .story-teller {
+            padding: 2vw;
+            font-size: 14px;
+            color: #666;
+            display: flex;
+            border-bottom: 1px solid #eee;
+            .from {
+                width: 70vw;
+            }
+            .dura {
+                width: 30vw;
+                text-align: right;
+            }
+        }
+
+        .story-short {
+            padding: 2vw;
+            font-size: 4vw;
+            text-indent: 6vw;
+            line-height: 6vw;
         }
     }
-
-    .story-short {
-        padding: 2vw;
-        font-size: 4vw;
-        text-indent: 6vw;
-        line-height: 6vw;
-    }
-    
-
 </style>
 
 <template>
     <div class="fs" ref="scroll">
-        <div class="scroll">
+        <div class="scroll player">
             <div class="play-cover" @tap="showIcons">
                 <div class="icons" :class="iconShow?'display':''">
                     <i class="return-icon icon-left-open" @tap="hidePlayer"></i>
@@ -221,6 +220,7 @@
             if (this.lastStory != this.story) {
                 this.scroll(this.$refs.scroll);
                 this.lastStory = this.story;
+                this.appDao.addPlayHistory(this.story);
             }
         },
 

@@ -35,12 +35,15 @@
 
 <template>
    <div class="fs">
-       <page-head :title="'故事分类'"></page-head>
-       <div class="body scroll-container" ref="scroll">
+       <div class="header">
+           <router-link to="/home" tag="i" class="icon-left-open">
+           </router-link>
+           <div class="title">故事分类</div>
+       </div>
+       <div class="full-scroll-container" ref="scroll">
            <div class="labels">
                 <div class="dimension" v-for="(item, index) in labels" :key="item.icon">
                     <div class="dim">
-                        <div class="dim-icon"><img :src="`${config.SERVER}/image/` + item.icon"></div>
                         <div class="dim-text">{{item.dim}}</div>
                     </div>
                     <div class="labels">
@@ -55,13 +58,10 @@
 </template>
 
 <script>
-    import PageHead from './components/header.vue';
     import commonMixins from '../js/common';
-    import config from '../js/config';
 
     export default {
         components: {
-            PageHead
         },
         mixins: [commonMixins],
         props: [
@@ -69,7 +69,6 @@
         ],
         data: function() {
             return {
-                config,
                 labels: []
             };
         },
@@ -81,7 +80,9 @@
         },
 
         mounted: function() {
-            
+            this.$nextTick(()=> {
+                this.scroll(this.$refs.scroll);
+            })
         },
 
         methods: {

@@ -41,7 +41,6 @@
             }
         }
     }
-
     .scroll-container {
         position: absolute;
         overflow: hidden;
@@ -49,9 +48,6 @@
         bottom: 60px;
         left: 0;
         right: 0;
-        .scroll-content {
-            background-color: #efefef;
-        }
     }
 
     .quick-entry {
@@ -107,7 +103,9 @@
                 <span @click="searchStory">搜索故事</span>
             </div>
             <div class="history">
-                <i class="icon-history" style="color: #fff"></i>
+                <router-link to="/history">
+                    <i class="icon-history" style="color: #fff"></i>
+                </router-link>
             </div>
         </div>
 

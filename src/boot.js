@@ -21,6 +21,8 @@ import Login from './vue/login.vue';
 import Register from './vue/register.vue';
 import Favorites from './vue/favorites';
 import Me from './vue/me.vue';
+import Download from './vue/download';
+import History from './vue/history';
 
 Vue.component('loading', loading);
 Vue.use(VueRouter);
@@ -60,6 +62,16 @@ const routes = [
         path: '/favorites',
         component : Favorites,
     },
+    {
+        path: '/download',
+        component : Download,
+    },{
+        path: '/history',
+        components : {
+            'full-topped': History,
+            default: Main,
+        }
+    }
 ];
 
 function startVue() {
@@ -109,8 +121,6 @@ function startVue() {
         });
         router.replace('/home');
     });
-
-
 }
 
 if (window.navigator.platform === 'Win32') {

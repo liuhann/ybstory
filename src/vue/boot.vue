@@ -38,7 +38,7 @@
             <player v-if="playerFront" :story="story" :playing="playing" :percent="percent" @hide="hidePlayer" @toggle="togglePlay"></player>
         </transition>
         
-        <play-ball v-if="story!==null" :playing="playing" :cover="coverImage" @click="ballClicked"></play-ball>
+        <play-ball v-if="story!==null && playing && (!playerFront)" :playing="playing" :cover="coverImage" @clicked="ballClicked"></play-ball>
 
         <div class='media-player'>
             <audio id='media-video' controls="false" :src="audioUrl">

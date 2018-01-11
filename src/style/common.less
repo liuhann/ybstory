@@ -63,26 +63,44 @@ body {
   }
 }
 
-
-
 .header {
   height: @header-height;
   .main-back-gradient;
-  display: flex;
+  position: relative;
   color: #fff;
   font-size: 18px;
   line-height: @header-height;
-  .left {
-    flex: 1;
+  .icon-left-open {
+    position: absolute;
+    left: 0;
+    top: 0;
     padding: 0px 3vw;
   }
   .title {
-    flex: 3;
     text-align: center;
   }
   .right {
     flex : 1;
   }
+}
+
+.main-scroll-container {
+  position: absolute;
+  overflow: hidden;
+  top:  @header-height;
+  bottom: @tab-height;
+  left: 0;
+  right: 0;
+}
+
+
+.full-scroll-container {
+  position: absolute;
+  overflow: hidden;
+  top:  @header-height;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .section {

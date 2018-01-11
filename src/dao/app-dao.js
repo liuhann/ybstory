@@ -12,7 +12,8 @@ class AppDao {
 
         this.db.defaults({
             favorites: [],
-            downloads: []
+            downloads: [],
+            historys: [],
         }).write();
 
     }
@@ -69,7 +70,12 @@ class AppDao {
         if(this.isDownloaded(story)) {
             return;
         }
+        story.downloaded = true;
         this.db.get('downloads').push(story).write();
+    }
+
+    getDownloads() {
+        return this.db.get('downloads').value();
     }
 
     isDownloaded(story) {
@@ -92,6 +98,28 @@ class AppDao {
         } else {
             return false;
         }
+    }
+
+    addPlayHistory(story) {
+        const value = this.db.get('historys').find({
+            path: story.path
+        }).value();
+        let count = 1;
+        if(value) {
+            if (value.count) {
+                count = value.count + 1;
+            }
+            this.db.get('historys').remove({
+                path: story.path
+            }).write();
+        }
+        story.count = count;
+        story.updated = new Date().getTime();
+        this.db.get('historys').push(story).write();
+    }
+
+    getHistories() {
+        return this.db.get('historys').value();
     }
 }
 

@@ -67,7 +67,7 @@ const commonMixins =  {
         formatDura: function(story) {
             if (story.duration) {
                 const number = parseInt(story.duration);
-                return Math.floor(number/60) + ":" + number%60;
+                return Math.floor(number/60) + ":" + (100 + number%60).toString().substring(1);
             } else {
                 return '';
             }

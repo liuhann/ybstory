@@ -9,7 +9,7 @@
         bottom: 0;
         width: 100%;
         border-top: 1px solid #eee;
-        background: #fff;
+        background: #f8f8f8;
         display: flex;
         box-sizing: border-box;
         a.tab-bar-item {

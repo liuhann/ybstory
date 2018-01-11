@@ -1,8 +1,35 @@
-<style lang="less" scoped>
-
+<style lang="less">
     .fav-container {
         .story {
             display: flex;
+            padding: 10px;
+
+            img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .info {
+                flex: 1;
+                padding-left: 10px;
+                .title {
+                    font-size: 16px;
+                }
+                .story-teller {
+                    padding-top: 10px;
+                    font-size: 14px;
+                    color: #888;
+                    display: flex;
+                    .from {
+                        float: left;
+                    }
+                    .dura {
+                        float: right;
+                    }
+                }
+            }
+
+            border-bottom: 1px solid #eee;
         }
     }
 </style>
@@ -12,10 +39,10 @@
         <div class="header">
             <div class="title">我的收藏</div>
         </div>
-        <div class="body scroll-container" ref="scroll">
+        <div class="main-scroll-container" ref="scroll">
             <div class="fav-container">
                 <div v-for="story of favorites" class="story" @tap="playStory(story)">
-                    <img :src="getImageUrl(story.cover, 90)">
+                    <img :src="getImageUrl(story.cover, 60)">
                     <div class="info">
                         <div class="title">{{story.title}}</div>
                         <div class="story-teller">
@@ -54,7 +81,7 @@
             this.favorites = favorites;
 
             this.$nextTick(()=> {
-
+                this.scroll(this.$refs.scroll);
             })
         },
 
