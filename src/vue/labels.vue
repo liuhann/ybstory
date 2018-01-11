@@ -17,12 +17,11 @@
         flex-wrap: wrap;
         padding-bottom: 16px;
         .label {
-            box-sizing: border-box;
             font-size: 18px;
             padding: 5px 10px;
             margin: 5px;
             border-radius: 20px;
-            border: 1px solid #68ba557a;
+            border: 1px solid #8bd17b;
         }
       }
     }

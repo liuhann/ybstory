@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "release": "node build/build.js -- NODE_ENV testing"
+    "release": "node build/build.js -- NODE_ENV testing",
+    "registry": "npm set registry https://registry.npmjs.org/"
   },
   "dependencies": {
     "axios": "^0.17.1",

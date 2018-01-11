@@ -4,40 +4,44 @@
         .home-title {
             .main-back-gradient;
             position: absolute;
-            width: 100vw;
+            width: 100%;
             top: 0;
             left: 0;
             z-index: 10;
             display: flex;
-            height: 7vh;
-            padding: 1vh 2vw;
+            height: @header-height;
+            padding: 8px;
             .logo {
                 img {
                     margin: .5vh;
-                    width: 4vh;
-                    height: 4vh;
+                    width: 30px;
+                    height: 30px;
                 }
             }
             .search-form-input {
-                width: 65vw;
-                margin-left: 10vw;
+                width: 60%;
+                margin-left: 20px;
+                margin-right: 20px;
+                border-bottom: 1px solid #fff;
                 span {
-                    font-size: 3.5vw;
+                    font-size: 14px;
+                    padding-left: 10px;
                     color: #fff;
                     display: inline-block;
-                    width: 65vw;
-                    line-height: 5vh;
-                    padding: 0px 2vw;
-                    border-bottom: 1px solid #fff;
+                    width: 60%;
+                    line-height: @header-height*2/3;
+                    /* padding: 5px; */
+
                     //background-color: #eee;
                 }
             }
             .history {
-                width: 10vw;
-                font-size: 5vw;
-                line-height: 5vh;
+                font-size: 20px;
                 color: #fff;
                 text-align: right;
+                position: absolute;
+                top: 9px;
+                right: 15px;
             }
         }
     }
@@ -96,7 +100,7 @@
 <template>
     <div class="page-home">
         <div class="home-title">
-            <div class="logo">,
+            <div class="logo">
                 <img src="../common/res/mushroom.svg">
             </div>
             <div class="search-form-input">
@@ -192,11 +196,12 @@
             this.slides = slides;
             this.homeList = homeData.list;*/
             this.$nextTick(()=> {
+                this.$refs.slider.ready();
                 this.scroll(this.$refs.scroll);
             })
         },
         updated: async function() {
-            this.$refs.slider.ready();
+
         },
        /* beforeRouteEnter (to, from, next) {
             // 在渲染该组件的对应路由被 confirm 前调用
@@ -222,7 +227,7 @@
                 })
             },
             searchStory: function() {
-                alert(location.href);
+                this.$router.push('/search');
             },
         }
     }
