@@ -53,6 +53,9 @@
                     </div>
                 </div>
             </div>
+            <div class="empty" v-if="favorites.length===0">
+                <span>还未下载任何内容</span>
+            </div>
         </div>
     </div>
 </template>
