@@ -17,7 +17,8 @@
         flex-wrap: wrap;
         padding-bottom: 16px;
         .label {
-            font-size: 18px;
+            color: #666;
+            font-size: 16px;
             padding: 5px 10px;
             margin: 5px;
             border-radius: 20px;

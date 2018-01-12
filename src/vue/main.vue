@@ -120,27 +120,9 @@
                 </div>
 
                 <div class="quick-entry clearfix">
-                    <div class="entry">
-                        <img class="icon" src="../common/res/picture.svg">
-                        <div class="name">精选绘本</div>
-                    </div>
-                    <div class="entry">
-                        <img class="icon" src="../common/res/reading.svg">
-                        <div class="name">亲子阅读</div>
-                    </div>
-                    <div class="entry">
-                        <img class="icon" src="../common/res/tale.svg">
-                        <div class="name">经典童话</div>
-                    </div>
-
-                    <div class="entry" @tap="routeToUrl('/label/睡前故事')">
-                        <img class="icon" src="../common/res/sleep.svg">
-                        <div class="name">睡前故事</div>
-                    </div>
-
-                    <div class="entry" @tap="routeToUrl('/labels')">
-                        <img class="icon" src="../common/res/labels.svg">
-                        <div class="name">故事分类</div>
+                    <div class="entry" v-for="recommendLabel of recommendLabels" @tap="routeToUrl(recommendLabel.path)">
+                        <span v-html="recommendLabel.svg"></span>
+                        <div class="name">{{recommendLabel.label}}</div>
                     </div>
                 </div>
 
@@ -179,6 +161,7 @@
                 });
             }
             return {
+                recommendLabels: homeData.recommendLabels,
                 slides: slides,
                 homeList: homeData.list,
             };

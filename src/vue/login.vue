@@ -17,9 +17,6 @@
 
 <template>
    <div class="fs login">
-       <loading :loading="loading" :message="message">
-
-       </loading>
 
        <page-head :title="'手机号码登录'"></page-head>
        <div class="body scroll-container">

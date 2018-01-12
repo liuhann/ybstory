@@ -8,6 +8,7 @@
     bottom: @tab-height;
     left: 0;
     right: 0;
+    overflow-y: auto;
     .user-name {
         height: 40vh;
         padding: 10vh 0;
@@ -32,6 +33,19 @@
         }
     }
 
+
+    .vt-list {
+        .vt-list-item {
+            display: flex;
+            font-size: 16px;
+            padding: 16px 10px;
+            color: #666;
+            border-bottom: 1px solid #eee;
+            .vt-list-item-icon {
+                margin-right: 10px;
+            }
+        }
+    }
 }
 </style>
 
@@ -51,19 +65,24 @@
         </div>
 
         <div class="vt-list">
-            <div class="vt-list-item" @click="goHistory()">
+            <div class="vt-list-item" @click="">
                 <div class="vt-list-item-icon icon-bell"></div>
                 <div class="vt-list-item-text">播放历史</div>
                 <div class="vt-list-item-arrow icon-right-open"></div>
             </div>
             <div class="vt-list-item" @click="goFavorite()">
                 <div class="vt-list-item-icon icon-heart-empty"></div>
-                <div class="vt-list-item-text">收藏</div>
+                <div class="vt-list-item-text">我的收藏</div>
+                <div class="vt-list-item-arrow icon-right-open"></div>
+            </div>
+            <div class="vt-list-item" @click="goFavorite()">
+                <div class="vt-list-item-icon icon-download"></div>
+                <div class="vt-list-item-text">我的下载</div>
                 <div class="vt-list-item-arrow icon-right-open"></div>
             </div>
             <div class="vt-list-item">
                 <div class="vt-list-item-icon icon-bell"></div>
-                <div class="vt-list-item-text">版本: 2.0.1</div>
+                <div class="vt-list-item-text">应用版本: 2.0.1</div>
             </div>
         </div>
     </div>
