@@ -116,7 +116,7 @@
         <div class="scroll-container" ref="scroll">
             <div class="scroll-content">
                 <div class="slide-container">
-                    <slider ref="slider" :slides="slides" :height="50"></slider>
+                    <slider ref="slider" :slides="slides" :height="50" @open="openAlbum"></slider>
                 </div>
 
                 <div class="quick-entry clearfix">
@@ -157,7 +157,8 @@
             const slides = [];
             for(let album of homeData.homesAlbum) {
                 slides.push({
-                    img: this.getImageUrl(album.cover, window.innerWidth)
+                    img: this.getImageUrl(album.cover, window.innerWidth),
+                    name: album.name,
                 });
             }
             return {
@@ -208,6 +209,10 @@
                 this.$router.push({
                     path
                 })
+            },
+
+            openAlbum: function(data) {
+                this.$router.push('/album/' + data.name);
             },
             searchStory: function() {
                 this.$router.push('/search');

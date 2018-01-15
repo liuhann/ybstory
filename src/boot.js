@@ -24,6 +24,7 @@ import Me from './vue/me.vue';
 import Download from './vue/download';
 import History from './vue/history';
 import Searcher from './vue/search';
+import AlbumStories from './vue/album-stories';
 
 Vue.component('loading', loading);
 Vue.use(VueRouter);
@@ -42,6 +43,12 @@ const routes = [
         path: '/label/:label',
         components : {
             'full-topped': LabelStories,
+            default: Main,
+        }
+    },{
+        path: '/album/:album',
+        components : {
+            'full-topped': AlbumStories,
             default: Main,
         }
     },{

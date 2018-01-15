@@ -1,7 +1,6 @@
 <style lang="less">
 
     .story-list {
-        background: #eee;
         .story-item {
             margin-top: 3vw;
             margin-left: 2vw;

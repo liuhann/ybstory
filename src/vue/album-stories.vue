@@ -5,7 +5,7 @@
 <template>
     <div class="fs">
         <div class="header">
-            <router-link to="/home" replace tag="i" class="icon-left-open" style="flex:1;">
+            <router-link to="/home" tag="i"  replace class="icon-left-open" style="flex:1;">
             </router-link>
             <div class="title">{{label}}</div>
         </div>
@@ -30,9 +30,9 @@ export default {
 
     data: function() {
         return {
-            label: '故事分类：' + this.$route.params.label,
+            label: '故事专辑：' + this.$route.params.album,
             filter: {
-                label: this.$route.params.label
+                album: this.$route.params.album
             }
         }
     },

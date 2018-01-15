@@ -97,10 +97,19 @@
         }
 
         .story-short {
-            padding: 2vw;
-            font-size: 4vw;
-            text-indent: 6vw;
-            line-height: 6vw;
+            padding: 10px;
+            font-size: 16px;
+            text-indent: 32px;
+            line-height: 32px;
+        }
+
+        .story-content {
+            .section-content {
+                padding: 10px;
+                font-size: 16px;
+                text-indent: 32px;
+                line-height: 32px;
+            }
         }
     }
 </style>
@@ -137,11 +146,12 @@
             <div class="story-short" v-if="story.short" v-html="storyShort">
             </div>
 
-            <div class="story-content section">
+            <div class="story-content section" v-if="readable">
                 <div class="section-title">
                     故事正文
                 </div>
                 <div class="section-content">
+                    {{storyContent}}
                 </div>
             </div>
             <div class="related">
@@ -169,6 +179,7 @@
                 isFavorite: this.appDao.isFavorite(this.story),
                 isDownloaded: this.appDao.isDownloaded(this.story),
                 iconShow: false,
+                readable: false,
             };
         },
 
@@ -221,6 +232,16 @@
                 this.scroll(this.$refs.scroll);
                 this.lastStory = this.story;
                 this.appDao.addPlayHistory(this.story);
+                if (this.story.readable) {
+                    this.appDao.getStoryContent(this.story).then((content)=>{
+                        this.readable = true;
+                        this.storyContent = content.text;
+                    });
+                } else {
+                    this.readable = false;
+                    this.storyContent = '';
+                }
+
             }
         },
 

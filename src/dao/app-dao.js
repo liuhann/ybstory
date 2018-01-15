@@ -54,6 +54,12 @@ class AppDao {
         return result;
     }
 
+
+    async getStoryContent(story) {
+        const result = await this.ctx.get(`${this.root}/story/content?story=` + story._id);
+        return result;
+    }
+
     async addFavorite(story, token) {
         if(this.isFavorite(story)) {
             return;

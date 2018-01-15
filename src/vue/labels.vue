@@ -32,7 +32,7 @@
 <template>
    <div class="fs">
        <div class="header">
-           <router-link to="/home" tag="i" class="icon-left-open">
+           <router-link to="/home" tag="i" replace class="icon-left-open">
            </router-link>
            <div class="title">故事分类</div>
        </div>

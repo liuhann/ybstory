@@ -36,7 +36,7 @@
 <template>
     <div class="histories fs">
         <div class="header">
-            <router-link to="/home" tag="i" class="icon-left-open" style="flex:1;">
+            <router-link to="/home" tag="i" class="icon-left-open" replace style="flex:1;">
             </router-link>
             <div class="title">播放历史</div>
         </div>
