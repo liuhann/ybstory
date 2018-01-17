@@ -155,14 +155,26 @@ if (window.navigator.platform === 'Win32') {
         startVue();
 
         document.addEventListener("backbutton", onBackKeyDown, false);
+
+        let clicked = 0;
         function onBackKeyDown() {
             if (app) {
                 if (app.$refs.boot.playerFront) {
                     app.$refs.boot.hidePlayer();
-                    return false;
+                    return;
                 }
             }
-            return true;
+
+
+            const now = new Date().getTime();
+
+            if (now - clicked > 800) {
+                clicked  = now;
+            } else {
+
+            }
+
+
             // Handle the back button
         }
     }
