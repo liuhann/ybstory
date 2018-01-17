@@ -28,6 +28,17 @@ class AppDao {
         return result;
     }
 
+    async getAllAlbums() {
+        const result = await this.ctx.get(`${this.root}/album/list`);
+        return result;
+    }
+
+    async getAlbumDetail(album) {
+        const result = await this.ctx.get(`${this.root}/album/info?album=` + album.name);
+        return result;
+    }
+
+
     async filterStory(filter, skip, limit) {
         const result = await this.ctx.get(`${this.root}/story/list`, Object.assign(filter, {skip, limit}));  
         return result;

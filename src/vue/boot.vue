@@ -72,6 +72,10 @@
                 path: '/home',
                 icon: 'icon-home'
             }, {
+                title: '故事专辑',
+                path: '/albums',
+                icon: 'icon-heart-empty'
+            }, /*{
                 title: '收藏',
                 path: '/favorites',
                 icon : "icon-heart-empty"
@@ -79,7 +83,7 @@
                 title: '下载',
                 path: '/download',
                 icon: 'icon-download'
-            }, {
+            }, */{
                 title: '我的',
                 path: '/me',
                 icon: 'icon-user-circle'

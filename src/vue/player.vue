@@ -65,18 +65,22 @@
             color: #666;
             padding: 10px 0px;
             .text-title {
-                width: 72vw;
-                padding: 2vw;
+                width: 70vw;
+                padding: 10px;
                 font-size: 18px;
             }
             .icons {
-                padding: 2vw;
                 font-size: 5vw;
+                width: 29vw;
                 i {
                     &.on {
                         color: #65bb57;
                     }
-                    padding: 2vw;
+                    width: 13vw;
+                    line-height: 13vw;
+                    text-align: center;
+                    height: 13vw;
+                    display: inline-block;
                 }
             }
         }
@@ -150,8 +154,7 @@
                 <div class="section-title">
                     故事正文
                 </div>
-                <div class="section-content">
-                    {{storyContent}}
+                <div class="section-content" v-html="storyContent">
                 </div>
             </div>
             <div class="related">
@@ -235,7 +238,8 @@
                 if (this.story.readable) {
                     this.appDao.getStoryContent(this.story).then((content)=>{
                         this.readable = true;
-                        this.storyContent = content.text;
+                        const lines = content.text.split('\n');
+                        this.storyContent = '<p>' + lines.join('</p><p>') + '</p>';
                     });
                 } else {
                     this.readable = false;

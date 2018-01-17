@@ -25,6 +25,7 @@ import Download from './vue/download';
 import History from './vue/history';
 import Searcher from './vue/search';
 import AlbumStories from './vue/album-stories';
+import Albums from './vue/album-list';
 
 Vue.component('loading', loading);
 Vue.use(VueRouter);
@@ -79,6 +80,9 @@ const routes = [
     {
         path: '/download',
         component : Download,
+    },{
+        path: '/albums',
+        component : Albums,
     },{
         path: '/history',
         components : {
