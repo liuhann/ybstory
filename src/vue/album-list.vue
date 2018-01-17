@@ -21,6 +21,13 @@
                 top: 20px;
             }
 
+            .total {
+                position: absolute;
+                top: 45px;
+                font-size: 14px;
+                color: #666;
+                left: 100px;
+            }
         }
     }
 </style>

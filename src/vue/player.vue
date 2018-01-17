@@ -101,8 +101,12 @@
         }
 
         .story-short {
+            background: #fcfcfc;
+            border-radius: 10px;
+            border: 1px solid #f8f8f8;
+            font-size: 14px;
+            margin: 10px;
             padding: 10px;
-            font-size: 16px;
             text-indent: 32px;
             line-height: 32px;
         }

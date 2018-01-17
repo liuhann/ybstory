@@ -83,6 +83,10 @@ const routes = [
     },{
         path: '/albums',
         component : Albums,
+        components : {
+            'full-topped': History,
+            default: Main,
+        }
     },{
         path: '/history',
         components : {
@@ -92,6 +96,8 @@ const routes = [
     }
 ];
 
+
+let app = null;
 function startVue() {
 
     const ctx = getContext();
@@ -119,7 +125,7 @@ function startVue() {
     const now = new Date().getTime();
     appDao.listHome().then((response)=> {
         const homeData = response;
-        const app = new Vue({
+        app = new Vue({
             el: '#app',
             data: {
                 homeData: homeData,
@@ -147,5 +153,17 @@ if (window.navigator.platform === 'Win32') {
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         startVue();
+
+        document.addEventListener("backbutton", onBackKeyDown, false);
+        function onBackKeyDown() {
+            if (app) {
+                if (app.$refs.boot.playerFront) {
+                    app.$refs.boot.hidePlayer();
+                    return false;
+                }
+            }
+            return true;
+            // Handle the back button
+        }
     }
 }
