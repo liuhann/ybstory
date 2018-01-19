@@ -23,10 +23,10 @@
                     display: flex;
                     border-bottom: none;
                     .from {
-                        float: left;
+                        flex: 1;
                     }
                     .dura {
-                        float: right;
+                        min-width: 40px;
                     }
                 }
             }

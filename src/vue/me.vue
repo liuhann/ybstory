@@ -65,21 +65,24 @@
         </div>
 
         <div class="vt-list">
-            <div class="vt-list-item" @click="">
+            <router-link to="/history" tag="div" class="vt-list-item">
                 <div class="vt-list-item-icon icon-bell"></div>
                 <div class="vt-list-item-text">播放历史</div>
                 <div class="vt-list-item-arrow icon-right-open"></div>
-            </div>
-            <div class="vt-list-item" @click="goFavorite()">
+            </router-link>
+
+            <router-link to="/favorites" tag="div" replace class="vt-list-item">
                 <div class="vt-list-item-icon icon-heart-empty"></div>
                 <div class="vt-list-item-text">我的收藏</div>
                 <div class="vt-list-item-arrow icon-right-open"></div>
-            </div>
-            <div class="vt-list-item" @click="goFavorite()">
+            </router-link>
+
+            <router-link to="/download" tag="div" replace class="vt-list-item">
                 <div class="vt-list-item-icon icon-download"></div>
                 <div class="vt-list-item-text">我的下载</div>
                 <div class="vt-list-item-arrow icon-right-open"></div>
-            </div>
+            </router-link>
+
             <div class="vt-list-item">
                 <div class="vt-list-item-icon icon-bell"></div>
                 <div class="vt-list-item-text">应用版本: 2.0.1</div>
@@ -100,6 +103,12 @@ export default {
 
     created() {
 
+    },
+
+    methods: {
+        goHistory() {
+
+        }
     }
 
 }

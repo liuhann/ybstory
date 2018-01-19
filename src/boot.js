@@ -7,6 +7,7 @@ import './style/common.less';
 import './style/transitions.less';
 
 import config from './js/config';
+import common from './js/common';
 
 import HttpClient from './common/httpclient';
 import contextProto from './common/context';
@@ -165,16 +166,13 @@ if (window.navigator.platform === 'Win32') {
                 }
             }
 
-
             const now = new Date().getTime();
-
             if (now - clicked > 800) {
+                common.methods.notice('连续按两次返回键退出元宝故事');
                 clicked  = now;
             } else {
-
+                navigator.app.exitApp();
             }
-
-
             // Handle the back button
         }
     }
