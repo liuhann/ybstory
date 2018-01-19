@@ -1,0 +1,25 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.yuanbaogushi.app"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.yuanbaogushi.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.yuanbaogushi.app"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.yuanbaogushi.app"
+    }
+  }
+}

@@ -39,7 +39,9 @@ export default {
         },
 
         canplay: function() {
-            this.audio.play();
+            setTimeout(()=> {
+                this.audio.play();
+            }, 1000);
         },
 
         ballClicked() {

@@ -1,0 +1,1 @@
+cordova run android --release -- --keystore=./ybstory.jks --storePassword=overlord123 --alias=ybstory --password=overlord123

@@ -1,0 +1,30 @@
+Installing "cordova-plugin-file-transfer" for android
+Installing "cordova-plugin-file" for android
+ANDROID_HOME=D:\AndroidSDK
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_111
+Subproject Path: CordovaLib
+Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+The Task.leftShift(Closure) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use Task.doLast(Action) instead.
+        at build_81llbxv5yvsq2dxob8p2tkj9d.run(D:\git\cordova-story\platforms\android\build.gradle:141)
+The JavaCompile.setDependencyCacheDir() method has been deprecated and is scheduled to be removed in Gradle 4.0.
+Incremental java compilation is an incubating feature.
+The TaskInputs.source(Object) method has been deprecated and is scheduled to be removed in Gradle 4.0. Please use TaskInputs.file(Object).skipWhenEmpty() instead.
+:clean
+:CordovaLib:clean
+
+BUILD SUCCESSFUL
+
+Total time: 22.474 secs
+
+The Android Persistent storage location now defaults to "Internal". Please check this plugin's README to see if your application needs any changes in its config.xml.
+
+If this is a new application no changes are required.
+
+If this is an update to an existing application that did not specify an "AndroidPersistentFileLocation" you may need to add:
+
+      "<preference name="AndroidPersistentFileLocation" value="Compatibility" />"
+
+to config.xml in order for the application to find previously stored files.
+
+Adding cordova-plugin-file-transfer to package.json
+Saved plugin info for "cordova-plugin-file-transfer" to config.xml
