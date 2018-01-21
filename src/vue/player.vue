@@ -25,10 +25,14 @@
                 }
                 .return-icon {
                     color: #fff;
-                    background-color: rgba(0,0,0,.5);
+                    background-color: rgba(0, 0, 0, 0.5);
                     border-radius: 10vw;
                     padding: 2vw;
+                    width: 10vw;
+                    height: 10vw;
+                    text-align: center;
                     font-size: 4vw;
+                    line-height: 6vw;
                     position: absolute;
                     left: 2vw;
                     top: 2vw;
@@ -36,10 +40,14 @@
 
                 .play-icon {
                     color: #fff;
-                    background-color: rgba(0,0,0,.6);
+                    background-color: rgba(0, 0, 0, 0.6);
                     border-radius: 10vw;
                     padding: 5vw;
+                    width: 18vw;
                     font-size: 6vw;
+                    text-align: center;
+                    line-height: 8vw;
+                    height: 18vw;
                     position: absolute;
                     left: 42vw;
                     top: 42vw;

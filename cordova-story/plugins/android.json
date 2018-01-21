@@ -7,19 +7,19 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.yuanbaogushi.app"
-    },
     "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "com.yuanbaogushi.app"
+      "PACKAGE_NAME": "com.nbssoft.story"
     },
     "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.yuanbaogushi.app"
+      "PACKAGE_NAME": "com.nbssoft.story"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.nbssoft.story"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.yuanbaogushi.app"
+      "PACKAGE_NAME": "com.nbssoft.story"
     }
   }
 }
