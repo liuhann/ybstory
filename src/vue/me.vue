@@ -21,6 +21,14 @@
             }
         }
 
+        .logout {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: #fff;
+            font-size: 20px;
+        }
+
         .name {
             a {
                 color: #fff;
@@ -57,6 +65,10 @@
         <div class="user-name main-back-gradient">
             <div class="avtar">
                 <i class="icon-user-circle"></i>
+            </div>
+
+            <div v-if="user" class="logout" @click="logout">
+                <i class="icon-power"></i>
             </div>
             <div class="name">
                 <router-link v-if="!user" to="/login">登录</router-link>
@@ -101,11 +113,24 @@ export default {
         }
     },
 
+    watch: {
+      '$route': function() {
+          this.user = localStorage.getItem('user');
+      }
+    },
+
     created() {
 
     },
 
     methods: {
+
+        logout() {
+            this.user = null;
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+        },
+
         goHistory() {
 
         }

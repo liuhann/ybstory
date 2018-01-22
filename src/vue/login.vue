@@ -17,8 +17,12 @@
 
 <template>
    <div class="fs login">
+       <div class="header">
+           <router-link to="/me" tag="i"  replace class="icon-left-open" style="flex:1;">
+           </router-link>
+           <div class="title">用户登录</div>
+       </div>
 
-       <page-head :title="'手机号码登录'"></page-head>
        <div class="body scroll-container">
            <div class="login-form">
                <div class="field">
@@ -42,12 +46,10 @@
 </template>
 
 <script>
-    import PageHead from './components/header.vue';
     import uimixins from '../common/ui/mixin';
 
     export default {
         components: {
-            PageHead
         },
 
         mixins: [uimixins],

@@ -24,7 +24,11 @@
 
 <template>
     <div class="fs login">
-        <page-head :title="'手机号码注册'"></page-head>
+        <div class="header">
+            <router-link to="/login" tag="i"  replace class="icon-left-open" style="flex:1;">
+            </router-link>
+            <div class="title">手机号码注册</div>
+        </div>
         <div class="body scroll-container">
             <div class="login-form">
                 <div class="field">

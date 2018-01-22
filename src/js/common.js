@@ -86,6 +86,12 @@ const commonMixins =  {
         },
 
         downloadStory: function(story) {
+            const user = localStorage.getItem("user");
+            if (!user) {
+                this.alert('请登录后下载故事');
+                return;
+            }
+
             const that = this;
             if (this.appDao.isDownloaded(story)) {
                 return;
@@ -168,6 +174,72 @@ const commonMixins =  {
                 }
             }, 3000);
         },
+
+        alert: function(msg) {
+            const toast = document.getElementById('global-alert');
+            if (toast) {
+                document.body.removeChild(toast);
+            }
+            const toastTpl = Vue.extend({
+                data() {
+                    return {
+                        maskStyle: {
+                            position: 'absolute',
+                            zIndex: 9999,
+                            top: 0,
+                            right: 0,
+                            left: 0,
+                            bottom: 0,
+                            background: 'rgba(0, 0, 0, 0.6)',
+                        },
+                        bodyStyle: {
+                            position: 'absolute',
+                            width: '80%',
+                            maxWidth: '300px',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            backgroundColor: '#FFFFFF',
+                            textAlign: 'center',
+                            borderRadius: '3px',
+                            overflow: 'hidden',
+                        },
+                        contentStyle: {
+                            fontSize: '16px',
+                            padding: '20px 0 30px 0px',
+                            borderBottom: '1px solid #eee',
+                        },
+                        btnStyle: {
+                            margin: '10px 20px',
+                            lineHeight: '6vw',
+                            padding: '3vw 0',
+                            borderRadius: '5px',
+                            fontSize: '5vw',
+                            color: '#fff',
+                            backgroundColor: '#65bb57',
+                            letterSpacing: '3vw',
+                        }
+                    };
+                },
+                template: `<div :style="maskStyle" class="toast-mask" id="global-alert">
+                                <div :style="bodyStyle">
+                                    <div class="content" :style="contentStyle">${msg}</div>
+                                    <div @click="closeThis"  :style="btnStyle">确定</div>
+                                </div>
+                            </div>`,
+                methods: {
+                    closeThis() {
+                        const toast = document.getElementById('global-alert');
+                        if (toast) {
+                            document.body.removeChild(toast);
+                        }
+                    }
+                }
+            });
+            const toastVM = new toastTpl();
+            const tpl = toastVM.$mount().$el;
+            document.body.appendChild(tpl);
+        }
     }
 };
 
