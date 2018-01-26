@@ -19,7 +19,7 @@ class AppDao {
     }
 
     async listHome() {
-        const result = await this.ctx.client.get(`${this.root}/home?labels=今日推荐,凯迪克大奖,绘本故事`);
+        const result = await this.ctx.client.get(`${this.root}/home?labels=今日推荐,凯迪克大奖,睡前故事,绘本故事`);
         return result;
     }
 
@@ -133,6 +133,12 @@ class AppDao {
         story.count = count;
         story.updated = new Date().getTime();
         this.db.get('historys').push(story).write();
+
+        this.ctx.post(`${this.root}/user/play/log?user=${localStorage.getItem('user')}`, {
+           story: story.title,
+           path: story.path,
+           storyId: story._id
+        });
     }
 
     getHistories() {

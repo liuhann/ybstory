@@ -11,14 +11,12 @@
                     padding: 5px;
                 }
             }
-
             .errors {
                 font-size: 12px;
                 color: red;
                 padding-bottom: 10px;
             }
         }
-
     }
 </style>
 

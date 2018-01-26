@@ -107,7 +107,6 @@
                 text-align: right;
             }
         }
-
         .story-short {
             background: #fcfcfc;
             border-radius: 10px;
