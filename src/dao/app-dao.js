@@ -140,11 +140,30 @@ class AppDao {
            storyId: story._id
         });
     }
-
     getHistories() {
-        return this.db.get('historys').value();
+        const histories = this.db.get('historys').orderBy(['updated'], ['desc']).value();
+
+        const result = {
+	        day3: [],
+	        day7: [],
+	        olders: []
+        };
+
+        const now = new Date().getTime();
+        const day3 = 3 * 24 * 60 * 60 * 1000;
+	    const day7 = 3 * 24 * 60 * 60 * 1000;
+        for(let story of histories) {
+			if (now - story.updated< day3 ) {
+				result.day3.push(story)
+			} else if (now - story.updated < day7) {
+				result.day7.push(story)
+			} else {
+				result.olders.push(story)
+			}
+        }
+
+        return result;
     }
 }
-
 
 export default AppDao;

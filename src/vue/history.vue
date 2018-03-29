@@ -1,5 +1,8 @@
 <style lang="less">
     .history-container {
+        .range {
+            padding: 10px;
+        }
         .story {
             display: flex;
             padding: 10px;
@@ -19,7 +22,7 @@
                     padding-top: 10px;
                     font-size: 14px;
                     color: #888;
-                    display: flex;
+
                     .from {
                         float: left;
                     }
@@ -42,14 +45,35 @@
         </div>
         <div class="body full-scroll-container" ref="scroll">
             <div class="history-container">
-                <div v-for="story of histories" class="story" @tap="playStory(story)">
+                <div class="range" v-if="histories.day3.length">近3天收听的</div>
+                <div v-for="story of histories.day3" class="story" @tap="playStory(story)">
+                    <img :src="getImageUrl(story.cover, 60)">
+                    <div class="info">
+                    <div class="title">{{story.title}}</div>
+                    <div class="story-teller">
+                        <!--<div class="from">来自：{{getStoryTeller(story)}} </div>-->
+                        播放 <i style="color:darkred;">{{story.count}}</i>次  {{story.updated | timeago}}播放</div>
+                    </div>
+                </div>
+                <div class="range" v-if="histories.day7.length">近一周收听的</div>
+                <div v-for="story of histories.day7" class="story" @tap="playStory(story)">
                     <img :src="getImageUrl(story.cover, 60)">
                     <div class="info">
                         <div class="title">{{story.title}}</div>
                         <div class="story-teller">
-                            <div class="from">来自：{{getStoryTeller(story)}} </div>
-                            <div class="dura">{{formatDura(story)}}</div>
-                        </div>
+                            <!--<div class="from">来自：{{getStoryTeller(story)}} </div>-->
+                            播放 <i style="color:darkred;">{{story.count}}</i>次  {{story.updated | timeago}}播放</div>
+                    </div>
+                </div>
+
+                <div class="range" v-if="histories.olders.length">更早播放的故事</div>
+                <div v-for="story of histories.olders" class="story" @tap="playStory(story)">
+                    <img :src="getImageUrl(story.cover, 60)">
+                    <div class="info">
+                        <div class="title">{{story.title}}</div>
+                        <div class="story-teller">
+                            <!--<div class="from">来自：{{getStoryTeller(story)}} </div>-->
+                            播放 <i style="color:darkred;">{{story.count}}</i>次  {{story.updated | timeago}}播放</div>
                     </div>
                 </div>
             </div>
@@ -60,6 +84,7 @@
 <script>
     import PageHead from './components/header.vue';
     import commonMixins from '../js/common';
+    import timeago from '../common/timeago';
 
     export default {
         components: {
@@ -74,6 +99,12 @@
             return {
                 histories: []
             };
+        },
+
+        filters: {
+        	timeago: function(value) {
+        		return timeago().format(value, 'zh_CN');
+            }
         },
 
         created: async function () {
