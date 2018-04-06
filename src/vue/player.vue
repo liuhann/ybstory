@@ -82,7 +82,7 @@
                 width: 29vw;
                 i {
                     &.on {
-                        color: #65bb57;
+                        color: #d82908;
                     }
                     width: 13vw;
                     line-height: 13vw;
@@ -148,7 +148,7 @@
             <div class="story-intro">
                 <div class="text-title">{{story.title}}</div>
                 <div class="icons">
-                    <i @tap="addFavorite(story)" class="collect icon-heart-empty" :class="isFavorite?'on':''"></i>
+                    <i @tap="addFavorite(story)" class="collect" :class="isFavorite?'on icon-heart':'icon-heart-empty'"></i>
                     <i @tap="downloadStory(story)" class="download icon-download" :class="isDownloaded?'on':''"></i>
                 </div>
             </div>
